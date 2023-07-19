@@ -18,7 +18,9 @@ if (!defined('ABSPATH')) {
 
 require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
 
+use ObiLearndashCustomCertificateFileName\Admin\AdminCertMetaBox;
 use ObiLearndashCustomCertificateFileName\Admin\AdminPage;
+use ObiLearndashCustomCertificateFileName\Activation;
 
 final class Obi_LD_Cert_Init
 {
@@ -52,10 +54,17 @@ final class Obi_LD_Cert_Init
     public static function load_obi_plugin()
     {
         AdminPage::get_instance();
+        AdminCertMetaBox::getInstance();
+        Activation::get_instance();
+        
     }
 
     public static function activate()
     {
+
+        Activation::obi_register_meta();
+
+        //exit('Should work');
 
     }
 
