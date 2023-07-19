@@ -21,6 +21,7 @@ require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
 use ObiLearndashCustomCertificateFileName\Admin\AdminCertMetaBox;
 use ObiLearndashCustomCertificateFileName\Admin\AdminPage;
 use ObiLearndashCustomCertificateFileName\Activation;
+use ObiLearndashCustomCertificateFileName\CertificateName;
 
 final class Obi_LD_Cert_Init
 {
@@ -56,7 +57,8 @@ final class Obi_LD_Cert_Init
         AdminPage::get_instance();
         AdminCertMetaBox::getInstance();
         Activation::get_instance();
-        
+        CertificateName::getInstance();
+
     }
 
     public static function activate()
