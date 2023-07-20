@@ -9,6 +9,7 @@ function App() {
   const [selectedSeparator, setSelectedSeparator] = useState('');
   const [unsavedSeparator, setUnsavedSeparator] = useState('');
   const [isSaving, setIsSaving] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false); // new state for showing success message
 
   const options = [
     { value: 'option1', label: 'Course Name' },
@@ -71,6 +72,8 @@ function App() {
       setIsSaving(false);
       setSelectedOptions(unsavedOptions);
       setSelectedSeparator(unsavedSeparator);
+      setShowSuccess(true); // set the success message to show
+      setTimeout(() => setShowSuccess(false), 3000); // hide the success message after 3 seconds
     })
     .catch(err => console.error(err));
   };
@@ -101,9 +104,21 @@ function App() {
             options={separators}
             value={separators.find(option => option.value === unsavedSeparator)}
           />
-          <button type="button" className="button button-primary" onClick={handleSave} disabled={isSaving}>
-            {isSaving ? 'Saving...' : 'Save Changes'}
-          </button>
+          <div style={{marginTop: '20px'}}> {/* Apply margin to container */}
+        <button 
+          type="button" 
+          className="button button-primary" 
+          onClick={handleSave} 
+          disabled={isSaving}
+        >
+          {isSaving ? 'Saving...' : 'Save Changes'}
+        </button>
+        {showSuccess && 
+          <span style={{ color: 'green', marginLeft: '10px' }}>
+            Changes saved successfully
+          </span>
+        }
+      </div>
         </div>
       </div>
     </div>
