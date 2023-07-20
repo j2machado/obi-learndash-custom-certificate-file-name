@@ -24,3 +24,6 @@ When you save the certificate PDF, you'll see the filename set to your custom ch
 
 * Add a drag and drop behavior to the selected options. Useful to change the options position.
 * Add the setting Custom Certificate Filename setting to individual certificates. Useful to override the global setting for a specific certificate.
+
+
+![Alt Obi LearnDash Custom Certificates File Name admin options screenshot](https://obijuan.dev/wp-content/uploads/2023/07/obi-learndash-custom-certificate-filename.png)
